@@ -1,0 +1,6 @@
+{
+  "watch": ["./"],
+  "ext": "ts",
+  "ignore": ["./public"],
+  "exec": "set DEBUG=technical-assessment:* & ts-node bin/www"
+}
