@@ -28,7 +28,8 @@ export type PayloadTypes =
   'INVALID_START_NODE' |
   'VALID_END_NODE' |
   'INVALID_END_NODE' |
-  'GAME_OVER';
+  'GAME_OVER' |
+  'ERROR';
 
 export class HttpException extends Error {
   status: number;
