@@ -1,11 +1,11 @@
-export {};//
-const createError = require('http-errors');
-const express = require('express');
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const logger = require('morgan');
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+import createError = require('http-errors');
+import express = require('express');
+import path = require('path');
+import cookieParser = require('cookie-parser');
+import logger = require('morgan');
+import indexRouter from './routes/index';
+import usersRouter from './routes/users';
+import * as ApiTypes from './types';
 
 const app = express();
 
@@ -31,14 +31,10 @@ app.use((_req: any, _res: any, next: (arg0: any) => void) => {
 // error handler
 app.use(
   (
-    err: { message: any; status: any },
-    req: { app: { get: (arg0: string) => string } },
-    res: {
-      locals: { message: any; error: any };
-      status: (arg0: any) => void;
-      render: (arg0: string) => void;
-    },
-    _next: any
+    err: ApiTypes.HttpException,
+    req: express.Request,
+    res: express.Response,
+    _next: express.NextFunction
   ) => {
     // set locals, only providing error in development
     res.locals.message = err.message;
@@ -50,4 +46,4 @@ app.use(
   }
 );
 
-module.exports = app;
+export default app;
