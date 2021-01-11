@@ -18,9 +18,17 @@ export interface StatusUpdate {
 }
 
 export interface Payload {
-  msg: string;
+  msg: PayloadTypes;
   body: StatusUpdate | Point | string;
 }
+
+export type PayloadTypes =
+  'INITIALIZE' |
+  'VALID_START_NODE' |
+  'INVALID_START_NODE' |
+  'VALID_END_NODE' |
+  'INVALID_END_NODE' |
+  'GAME_OVER';
 
 export class HttpException extends Error {
   status: number;
