@@ -6,4 +6,8 @@ router.get('/', function(req, res, next) {
   res.redirect('client/')
 });
 
+router.get('/initialize', function(req, res, next) {
+  res.send('initialize sent');
+});
+
 module.exports = router;

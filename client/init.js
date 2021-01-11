@@ -7,8 +7,8 @@ const node = document.getElementById('app');
 // information:
 // https://technical-assessment.konicaminoltamarketplace.com
 const app = Elm.Main.embed(node, {
-    api: 'Client',
-    hostname: '',
+    api: 'Http',
+    hostname: 'http://localhost:8080',
 });
 
 app.ports.startTimer.subscribe((int) => {
